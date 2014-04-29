@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+  
+  <div id="wrapper">
+
+    <div id="left">
+      User: 
+        <strong id="user">{{user}}</strong></br>
+      Image: 
+        <strong id='img-link'>
+          <a href="static/images/{{image}}" target="_blank">{{image}}</a>
+        </strong></br>
+      Number Left: 
+        <strong>
+          {{images_left}}
+        </strong>
+      <div id="img">
+        <img src="static/images/{{image}}">
+      </div>
+      <button id='clear'>
+        Clear
+      </button>
+      <div id="form-wrapper">
+        <form method=post action="/label/image/">
+          <button id="send" type="submit">
+            Submit
+          </button>
+          <div id="hidden-form">
+            <label for="data">data</label>
+            <input id="data" type="text" name="data">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="right">
+      <strong>Instructions:</strong>
+      <div id="log">
+        <ul>
+          <li>Identify <span style='background-color:#788854;'><strong>thatch</strong></span> roofs by clicking on them.</li>
+          <li>Identify <span style='background-color:#a7b0ad;'><strong>iron</strong></span> roofs by shift+clicking on them.</li>
+          <li>If you need to restart, press 'Clear'.</li>
+          <li>When you're done with an image, press 'Submit'.</li>
+        </ul>
+        <p><strong>Labels:</strong></p>
+        <ul id="log-list"></ul>
+      </div>
+    </div>
+    
+  </div>
+  
+{% endblock %}
